@@ -89,7 +89,7 @@ nav ul li a:hover {
 
 /* Updated Hero Section */
 .hero {
-    background: url(aadityas\ banner.png) no-repeat center center/cover;
+    background: url(banner.png) no-repeat center center/cover;
     height: 90vh;
     display: flex;
     align-items: center;
