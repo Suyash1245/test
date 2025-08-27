@@ -457,6 +457,13 @@ nav ul li a:hover {
     resize: vertical;
 }
 
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
 /* Footer */
 footer {
     background-color: var(--secondary);
