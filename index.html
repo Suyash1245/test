@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -37,8 +37,8 @@
         <div class="hero-text">
           <h1>Aaditya's <span>Pets Villa</span></h1>
           <p class="tagline">
-            "From loyal companions to playful pups – we've got everything your
-            dog needs for a happy, healthy life!"
+            Loyal companions to playful pups <br />
+            We've got everything your dog needs for a happy, healthy life!
           </p>
           <div class="hero-highlights">
             <p><i class="fas fa-paw"></i> Best affordable pet dogs</p>
@@ -77,10 +77,7 @@
             <a href="#certifications" class="btn"> Our Certifications</a>
           </div>
           <div class="about-image">
-            <img
-              src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-              alt="Our Facility"
-            />
+            <img src="dogs.jpeg" alt="Our Facility" />
           </div>
         </div>
       </div>
@@ -345,7 +342,7 @@
         </div>
 
         <div class="copyright">
-          <p>&copy; 2025 Aaditya's Pets Villa. All Rights Reserved.</p>
+          <p>&copy; 2026 Aaditya's Pets Villa. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
@@ -384,18 +381,45 @@
       });
 
       // form submission
+      // document
+      //   .getElementById("customForm")
+      //   .addEventListener("submit", function (e) {
+      //     e.preventDefault();
+
+      //     const formURL =
+      //       "https://docs.google.com/forms/d/e/1FAIpQLScwaest5bHY95MV_-rzsojDklXvucOubUIz26QN5ZJ6W3OIkg/formResponse";
+      //     const formData = new FormData(this);
+
+      //     fetch(formURL, { method: "POST", body: formData, mode: "no-cors" })
+      //       .then(() => alert("Form submitted successfully!"))
+      //       .catch(() => alert("Error submitting form"));
+      //   });
+
+      const SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycby9FAl9xtCfltmXvlymuaGgyDqjvhGw6qOtOAHHKtBAfxBbIxvDtTMlYvXRIV5j3MM_vw/exec";
+
       document
         .getElementById("customForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
-          const formURL =
-            "https://docs.google.com/forms/d/e/1FAIpQLScwaest5bHY95MV_-rzsojDklXvucOubUIz26QN5ZJ6W3OIkg/formResponse";
           const formData = new FormData(this);
 
-          fetch(formURL, { method: "POST", body: formData, mode: "no-cors" })
-            .then(() => alert("Form submitted successfully!"))
-            .catch(() => alert("Error submitting form"));
+          fetch(SCRIPT_URL, {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.result === "success") {
+                alert("Message sent successfully!");
+                document.getElementById("customForm").reset();
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("Something went wrong. Please try again.");
+            });
         });
     </script>
   </body>
